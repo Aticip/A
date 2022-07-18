@@ -4,13 +4,25 @@
   
   
   <entry>
-    <title></title>
-    <link href="/2022/07/16/nm/"/>
-    <url>/2022/07/16/nm/</url>
+    <title>aticip</title>
+    <link href="/2022/07/18/aticip/"/>
+    <url>/2022/07/18/aticip/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<p><img src="/2022/07/18/aticip/Screenshot_2022-06-30-10-32-58-30_a5c17d2e2fb3cc7223d3ad8bda19a0b6.jpg" alt="九洲"></p>]]></content>
     
     
+    <categories>
+      
+      <category>日常记录</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>攻略</tag>
+      
+    </tags>
     
   </entry>
   
@@ -18,10 +30,10 @@
   
   <entry>
     <title>安卓的墓碑机制(暂停执行已缓存应用)</title>
-    <link href="/2022/06/28/%E5%A2%93%E7%A2%91%E6%9C%BA%E5%88%B6/"/>
-    <url>/2022/06/28/%E5%A2%93%E7%A2%91%E6%9C%BA%E5%88%B6/</url>
+    <link href="/2022/06/28/Tombstone-mechanism/"/>
+    <url>/2022/06/28/Tombstone-mechanism/</url>
     
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>为了便于理解，也防止误导别人，不做过多解释</strong><br>带来的部分好处:</p><blockquote><p>后台软件只占用运存，也就是RAM，不再占用CPU——关联着手机的运行和发热，电量。后台运行的软件，<br>在运存足够的情况下，是不会干扰前台软件的运行，不再占用CPU,减少发热，外加省电。</p></blockquote><hr><p>   <strong>起因</strong><br>   本身我是不关心这个东西，但是，在前段时间，发现联系一些，不把通讯软件挂在后台的人，有很大问题，开始留意相关的问题。</p><p>   我不怎么喜欢等待回复，幸运的是，伤人的话，我基本都会过一下脑子。</p><blockquote><p>在日常使用中，我逐渐发现，手机发热问题，有了一些缓解，虽然前台发热不能改变(这本身有骁龙870芯片自身的问题)，但后台软件不再产生发热问题，微信和QQ，即使不给自启权限，只放在后台，消息通知，并不会遗漏</p></blockquote><hr><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs markdown">Android 12 开启方式<br><span class="hljs-bullet">1.</span> 在手机设置里面，找到版本号，点击六下<br><span class="hljs-bullet">2.</span> 进入开发者模式后，查找是否有暂停执行已缓存应用<br><span class="hljs-bullet">3.</span> 点击启用，但是，不可以关掉，会重置设置<br><br>但是可以通过下面方式开启<br><br></code></pre></td></tr></table></figure><p><strong>下面的开启方式，适用于所有具备该功能的手机，大概是安卓11以上，部分安卓10可以</strong></p><h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><ul><li>需要下载爱玩工具箱和Shizuku</li></ul><p><a href="https://www.coolapk.com/apk/com.byyoung.setting">爱玩工具箱下载地址</a>[1]<br>[1]:<a href="https://www.coolapk.com/apk/com.byyoung.setting">https://www.coolapk.com/apk/com.byyoung.setting</a></p><p><a href="https://shizuku.rikka.app/">Shizuku下载地址</a>[2]<br>[2]:<a href="https://shizuku.rikka.app/">https://shizuku.rikka.app/</a></p><h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><ol><li>打开Shizuku，找到无线配对（其他方式你会，也可以。目的是运行shizuku）</li><li>按照步骤，开启开发者选项的无线调试，通过六位配对码开始配对</li><li>必须要连接WLAN，校园网的就可以，不需要网络，运行后先不要关闭</li><li>打开爱玩工具箱，在开始界面有——修改系统安全设置，打开它，然后点击暂不授权，下载相关权限包，安装到软件里。</li><li>下载慢和停顿是比较正常的，在导航里找到系统相关设置，在里面找到暂停执行已缓存应用。<blockquote><p>没有就是手机不支持,可以通过其他方式开启，但是会对系统分区进行读写，没有保修，降低系统稳定性。不过，可以通过刷官方系统包进行弥补，没影响，但是，我很久不这样玩了。</p></blockquote></li></ol><blockquote><p>还是打算做视频，单是文字可能不行。图片插入有问题，问题没找到，我用的Markdown基本语法，但不怎么熟练，不想在这花太多时间，这种语法排版，书写要求比较多，对目前我来说，有点问题。</p></blockquote><p><strong>说明</strong></p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><br>安卓的墓碑机制，在通过正常手段开启<br>只有<span class="hljs-keyword">Android11以上，</span><br><span class="hljs-keyword"></span>其他版本可以通过[模块墓碑]，<br>效果更为霸道，<br>原理和<span class="hljs-keyword">Android本身有关，不多说明。</span><br><span class="hljs-keyword"></span><br>开启后，在一次启动后，<br>将软件留在后台，<br>消息推送服务使命必达，<br>在手机静音或者不在身边外，<br>不可能因为不挂后台而导致无法接受消息。<br>但是，不能保存超出自己手机承受范围的后台数量，<br>不然运存不足，影响使用，ios也会清<br><br></code></pre></td></tr></table></figure><p><strong>科普</strong></p><blockquote><p>本身谷歌自身有相应的信息推送服务，但因为墙的存在，使用并不方便，国内厂商为了用户体验，阉割了谷歌服务，谷歌的FCM推送服务无法使用，之前叫GCM。我之前试过，失败了，所以这种方式放弃了，手机运存足够，所以用处也不大。</p></blockquote><p>ios的推送机制，是所有app的信息先发到ios的服务端，通过系统级的优先级，推送到手机，软件里需要有相关服务，想进人家商店，必须要有。</p><p>Android很早的版本也有，就是谷歌的，不能应用原因在上。</p><blockquote><p>由于 GCM 缺失，长期以来，国内的 Android 应用要么自己使用一套推送体系，要么采用第三方服务商的系统，小米、魅族等厂商也曾为此进行过努力，例如 MIUI 的“对齐唤醒机制”、Mi Push 等，但仍无法从根本上解决国内 Android 系统混乱的推送局面。</p></blockquote><blockquote><p>2017年，10 月 16 日，统一推送联盟成立大会在北京举办。大会由工信部旗下的中国信息通信研究院泰尔终端实验室主办，并邀请了华为、OPPO、vivo、小米、三星、魅族、金立、nubia、Google、百度、阿里巴巴、腾讯、京东、美团、平安科技、个推、极光等 75 家企业代表出席。由工信部牵头的“安卓统一推送联盟”将为国内的 Android 消息推送服务建立统一的标准</p></blockquote><p><strong>其效果就是可以在不需要打开APP的情况之下，也能接收到APP的消息通知</strong></p><hr>]]></content>
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>为了便于理解，也防止误导别人，不做过多解释</strong><br>带来的部分好处:</p><blockquote><p>后台软件只占用运存，也就是RAM，不再占用CPU——关联着手机的运行和发热，电量。后台运行的软件，<br>在运存足够的情况下，是不会干扰前台软件的运行，不再占用CPU,减少发热，外加省电。</p></blockquote><hr><p>   <strong>起因</strong><br>   本身我是不关心这个东西，但是，在前段时间，发现联系一些，不把通讯软件挂在后台的人，有很大问题，开始留意相关的问题。</p><p>   我不怎么喜欢等待回复，幸运的是，伤人的话，我基本都会过一下脑子。</p><blockquote><p>在日常使用中，我逐渐发现，手机发热问题，有了一些缓解，虽然前台发热不能改变(这本身有骁龙870芯片自身的问题)，但后台软件不再产生发热问题，微信和QQ，即使不给自启权限，只放在后台，消息通知，并不会遗漏</p></blockquote><hr><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs markdown">Android 12 开启方式<br><span class="hljs-bullet">1.</span> 在手机设置里面，找到版本号，点击六下<br><span class="hljs-bullet">2.</span> 进入开发者模式后，查找是否有暂停执行已缓存应用<br><span class="hljs-bullet">3.</span> 点击启用，但是，不可以关掉，会重置设置<br><br>但是可以通过下面方式开启<br><br></code></pre></td></tr></table></figure><p><strong>下面的开启方式，适用于所有具备该功能的手机，大概是安卓11以上，部分安卓10可以</strong></p><h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><ul><li>需要下载爱玩工具箱和Shizuku</li></ul><p><a href="https://www.coolapk.com/apk/com.byyoung.setting">爱玩工具箱下载地址</a>[1]<br>[1]:<a href="https://www.coolapk.com/apk/com.byyoung.setting">https://www.coolapk.com/apk/com.byyoung.setting</a></p><p><a href="https://shizuku.rikka.app/">Shizuku下载地址</a>[2]<br>[2]:<a href="https://shizuku.rikka.app/">https://shizuku.rikka.app/</a></p><h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><ol><li>打开Shizuku，找到无线配对（其他方式你会，也可以。目的是运行shizuku）</li><li>按照步骤，开启开发者选项的无线调试，通过六位配对码开始配对</li><li>必须要连接WLAN，校园网的就可以，不需要网络，运行后先不要关闭</li><li>打开爱玩工具箱，在开始界面有——修改系统安全设置，打开它，然后点击暂不授权，下载相关权限包，安装到软件里。</li></ol><p><img src="/2022/06/28/Tombstone-mechanism/Screenshot_2022-07-18-14-11-31-97_a5c17d2e2fb3cc7223d3ad8bda19a0b6.jpg" alt="第四步"></p><ol start="5"><li>下载慢和停顿是比较正常的，在导航里找到系统相关设置，在里面找到暂停执行已缓存应用。</li></ol><p><img src="/2022/06/28/Tombstone-mechanism/Screenshot_2022-06-30-10-32-58-30_a5c17d2e2fb3cc7223d3ad8bda19a0b6.jpg" alt="第五步"></p><p><img src="/2022/06/28/Tombstone-mechanism/IMG_20220718_141224.jpg" alt="出现取下界面" title="按照上面设置，以后不能打开开发者选项，不然会重置"></p><ul><li><p>没有就是手机不支持,可以通过其他方式开启，但是会对系统分区进行读写，没有保修，降低系统稳定性。</p></li><li><p>不过，可以通过刷官方系统包进行弥补，没影响，但是，我很久不这样玩了。</p></li></ul><p><strong>说明</strong></p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><br>安卓的墓碑机制，在通过正常手段开启<br>只有<span class="hljs-keyword">Android11以上，</span><br><span class="hljs-keyword"></span>其他版本可以通过[模块墓碑]，<br>效果更为霸道，<br>原理和<span class="hljs-keyword">Android本身有关，不多说明。</span><br><span class="hljs-keyword"></span><br>开启后，在一次启动后，<br>将软件留在后台，<br>消息推送服务使命必达，<br>在手机静音或者不在身边外，<br>不可能因为不挂后台而导致无法接受消息。<br>但是，不能保存超出自己手机承受范围的后台数量，<br>不然运存不足，影响使用，ios也会清<br><br></code></pre></td></tr></table></figure><p><strong>科普</strong></p><blockquote><p>本身谷歌自身有相应的信息推送服务，但因为墙的存在，使用并不方便，国内厂商为了用户体验，阉割了谷歌服务，谷歌的FCM推送服务无法使用，之前叫GCM。我之前试过，失败了，所以这种方式放弃了，手机运存足够，所以用处也不大。</p></blockquote><p>ios的推送机制，是所有app的信息先发到ios的服务端，通过系统级的优先级，推送到手机，软件里需要有相关服务，想进人家商店，必须要有。</p><p>Android很早的版本也有，就是谷歌的，不能应用原因在上。</p><blockquote><p>由于 GCM 缺失，长期以来，国内的 Android 应用要么自己使用一套推送体系，要么采用第三方服务商的系统，小米、魅族等厂商也曾为此进行过努力，例如 MIUI 的“对齐唤醒机制”、Mi Push 等，但仍无法从根本上解决国内 Android 系统混乱的推送局面。</p></blockquote><blockquote><p>2017年，10 月 16 日，统一推送联盟成立大会在北京举办。大会由工信部旗下的中国信息通信研究院泰尔终端实验室主办，并邀请了华为、OPPO、vivo、小米、三星、魅族、金立、nubia、Google、百度、阿里巴巴、腾讯、京东、美团、平安科技、个推、极光等 75 家企业代表出席。由工信部牵头的“安卓统一推送联盟”将为国内的 Android 消息推送服务建立统一的标准</p></blockquote><p><strong>其效果就是可以在不需要打开APP的情况之下，也能接收到APP的消息通知</strong></p><hr>]]></content>
     
     
     <categories>
@@ -33,7 +45,7 @@
     
     <tags>
       
-      <tag>-墓碑机制</tag>
+      <tag>墓碑机制</tag>
       
     </tags>
     
@@ -58,26 +70,7 @@
     
     <tags>
       
-      <tag>-日常记录</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>花开花落</title>
-    <link href="/2022/06/14/%E8%8A%B1%E5%BC%80%E8%8A%B1%E8%90%BD/"/>
-    <url>/2022/06/14/%E8%8A%B1%E5%BC%80%E8%8A%B1%E8%90%BD/</url>
-    
-    <content type="html"><![CDATA[<pre><code class="hljs">信言[1]不美，美言不信。善者不辩，辩[2]者不善。知者不博，博[3]者不知。圣人不积，既以为人己愈有。既以与人己愈多[4]。天之道，利而不害。圣人之道，为而不争。</code></pre>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>-攻略</tag>
+      <tag>日常记录</tag>
       
     </tags>
     
@@ -90,7 +83,7 @@
     <link href="/2022/06/13/b/"/>
     <url>/2022/06/13/b/</url>
     
-    <content type="html"><![CDATA[<pre><code class="hljs">termux搭建博客，花费我很多时间，安装各种配置，结果wordpress连接数据库处失败了，只能使用hexo搭建一个静态博客，这也算是给自己目标的交代，以后不再继续这个方面。</code></pre>]]></content>
+    <content type="html"><![CDATA[<h1 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h1><ul><li>termux搭建博客，花费我很多时间。   安装各种配置，结果wordpress连接数据库处失败了，只能使用hexo搭建一个静态博客，这也算是给自己目标的交代，以后不再继续这个方面。</li></ul>]]></content>
     
     
     <categories>
@@ -102,7 +95,7 @@
     
     <tags>
       
-      <tag>-日常记录</tag>
+      <tag>日常记录</tag>
       
     </tags>
     
@@ -115,7 +108,7 @@
     <link href="/2022/06/13/hj/"/>
     <url>/2022/06/13/hj/</url>
     
-    <content type="html"><![CDATA[<pre><code class="hljs">好的围棋要慢慢下，好的生活经历要细细品味。不要着急把棋盘下满，也不要匆忙地走完人生之路。人生像一杯浓茶，只有&gt;细细地品味才能尝到最真切的茶香。喝得太急，也许尝到的只是许&gt;多苦涩。                                                            人生的大海永远都无法俯视。所以，我们不能看到它的整个过程，唯有认真仔细地走过，才不会被巨浪打倒。到大自然中去&gt;观看风景，也许你会发现，一个有山有水的地方，包孕天地的灵毓&gt;，却也有贫瘠落后。造化予此就一定取彼，这是毫无疑问的。所以&gt;，我们无法达到十全十美。“飞流直下三千尺”的状况不是那简单的“一泻千里”就能拥有的，那是多少水流叠过一个弯又一个弯，再叠一个弯又一个弯才将那隐隐闷响化作喧嚣，传向远方。                      站在大山脚下，你只能感到它的高大只有攀到山顶才会发现，原来那起伏的连山在“涌动”。然而，如果你只停留在云层的上&gt;面，那么你永远无法享受那变化不停的云彩给人带来的美感。如果&gt;你只在大地上看天，那么你就失去了感觉这繁盛大地整体壮景的机&gt;会。生命的诞生就注定了我们要在运动中追求、创造、拥有。因为“不识庐山真面目，只缘身在此山中”，也因为“欲穷千里目，更上一&gt;层楼”。    作为沧海一滴的是水，作为社会一员的是人。水为人献出</code></pre><p>了一切，而人又为人做了些什么呢?                                    生命是一个过程，可悲的是它不可以重来。切勿匆忙，放稳脚步，积极前行!</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="无题"><a href="#无题" class="headerlink" title="无题"></a>无题</h1><ul><li><p>好的围棋要慢慢下，好的生活经历要细细品味。   不要着急把棋盘下满，也不要匆忙地走完人生之路。    人生像一杯浓茶，只有细细地品味才能尝到最真切的茶香。   喝得太急，也许尝到的只是许多苦涩。</p></li><li><p>人生的大海永远都无法俯视。   所以，我们不能看到它的整个过程，唯有认真仔细地走过，才不会被巨浪打倒。   到大自然中去&gt;观看风景，也许你会发现，一个有山水水的地方，包孕天地的灵毓，却也有贫瘠落后。   造化予此就一定取彼，这是毫无疑问的。   </p></li><li><p>所以，我们无法达到十全十美。   “飞流直下三千尺”的状况不是那简单的“一泻千里”就能拥有的，那是多少水流叠过一个弯又一个弯，再叠一个弯又一个弯才将那隐隐闷响化作喧嚣，传向远方。</p></li><li><p>站在大山脚下，你只能感到它的高大只有攀到山顶才会发现，原来那起伏的连山在“涌动”。   然而，如果你只停留在云层的上面，那么你永远无法享受那变化不停的云彩给人带来的美感。   如果你只在大地上看天，那么你就失去了感觉这繁盛大地整体壮景的机&gt;会。   生命的诞生就注定了我们要在运动中追求、创造、拥有。   因为“不识庐山真面目，只缘身在此山中”，也因为“欲穷千里目，更上一层楼”。</p></li><li><p>作为沧海一滴的是水，作为社会一员的是人。   水为人献出了一切，而人又为人做了些什么呢?</p></li><li><p>生命是一个过程，可悲的是它不可以重来。切勿匆忙，放稳脚步，积极前行!</p></li></ul>]]></content>
     
     
     
