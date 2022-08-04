@@ -12,8 +12,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  
   <meta name="theme-color" content="#2f4154">
   <meta name="author" content="九洲">
   <meta name="keywords" content="">
@@ -29,12 +27,14 @@
 <meta property="og:image" content="http://example.com/2022/06/28/Tombstone-mechanism/Screenshot_2022-06-30-10-32-58-30_a5c17d2e2fb3cc7223d3ad8bda19a0b6.jpg">
 <meta property="og:image" content="http://example.com/2022/06/28/Tombstone-mechanism/IMG_20220718_141224.jpg">
 <meta property="article:published_time" content="2022-06-28T13:40:44.000Z">
-<meta property="article:modified_time" content="2022-07-18T10:12:50.491Z">
+<meta property="article:modified_time" content="2022-08-04T15:18:27.881Z">
 <meta property="article:author" content="九洲">
 <meta property="article:tag" content="墓碑机制">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/2022/06/28/Tombstone-mechanism/Screenshot_2022-07-18-14-11-31-97_a5c17d2e2fb3cc7223d3ad8bda19a0b6.jpg">
   
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
   
   
   <title>安卓的墓碑机制(暂停执行已缓存应用) - 一叶障目，不见泰山</title>
@@ -210,6 +210,11 @@
           
   <div class="mt-3">
     
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        九洲
+      </span>
+    
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
@@ -242,6 +247,14 @@
     
 
     
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
     
   </div>
 
@@ -295,8 +308,8 @@
 <h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><ul>
 <li>需要下载爱玩工具箱和Shizuku</li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://www.coolapk.com/apk/com.byyoung.setting">爱玩工具箱下载地址</a>[1]<br>[1]:<a target="_blank" rel="noopener" href="https://www.coolapk.com/apk/com.byyoung.setting">https://www.coolapk.com/apk/com.byyoung.setting</a></p>
-<p><a target="_blank" rel="noopener" href="https://shizuku.rikka.app/">Shizuku下载地址</a>[2]<br>[2]:<a target="_blank" rel="noopener" href="https://shizuku.rikka.app/">https://shizuku.rikka.app/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.coolapk.com/apk/com.byyoung.setting">爱玩工具箱下载地址</a>[1]<br>[1]: <a target="_blank" rel="noopener" href="https://www.coolapk.com/apk/com.byyoung.setting">https://www.coolapk.com/apk/com.byyoung.setting</a></p>
+<p><a target="_blank" rel="noopener" href="https://shizuku.rikka.app/">Shizuku下载地址</a>[2]<br>[2] :<a target="_blank" rel="noopener" href="https://shizuku.rikka.app/">https://shizuku.rikka.app/</a></p>
 <h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><ol>
 <li>打开Shizuku，找到无线配对（其他方式你会，也可以。目的是运行shizuku）</li>
 <li>按照步骤，开启开发者选项的无线调试，通过六位配对码开始配对</li>
@@ -318,9 +331,10 @@
 <p><strong>说明</strong></p>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><br>安卓的墓碑机制，在通过正常手段开启<br>只有<span class="hljs-keyword">Android11以上，</span><br><span class="hljs-keyword"></span>其他版本可以通过[模块墓碑]，<br>效果更为霸道，<br>原理和<span class="hljs-keyword">Android本身有关，不多说明。</span><br><span class="hljs-keyword"></span><br>开启后，在一次启动后，<br>将软件留在后台，<br>消息推送服务使命必达，<br>在手机静音或者不在身边外，<br>不可能因为不挂后台而导致无法接受消息。<br>但是，不能保存超出自己手机承受范围的后台数量，<br>不然运存不足，影响使用，ios也会清<br><br></code></pre></td></tr></table></figure>
 <p><strong>科普</strong></p>
-<blockquote>
-<p>本身谷歌自身有相应的信息推送服务，但因为墙的存在，使用并不方便，国内厂商为了用户体验，阉割了谷歌服务，谷歌的FCM推送服务无法使用，之前叫GCM。我之前试过，失败了，所以这种方式放弃了，手机运存足够，所以用处也不大。</p>
-</blockquote>
+<div class="note note-info">
+            <p>本身谷歌自身有相应的信息推送服务，但因为墙的存在，使用并不方便，国内厂商为了用户体验，阉割了谷歌服务，谷歌的FCM推送服务无法使用，之前叫GCM。我之前试过，失败了，所以这种方式放弃了，手机运存足够，所以用处也不大。</p>
+          </div>
+
 <p>ios的推送机制，是所有app的信息先发到ios的服务端，通过系统级的优先级，推送到手机，软件里需要有相关服务，想进人家商店，必须要有。</p>
 <p>Android很早的版本也有，就是谷歌的，不能应用原因在上。</p>
 <blockquote>
@@ -329,7 +343,10 @@
 <blockquote>
 <p>2017年，10 月 16 日，统一推送联盟成立大会在北京举办。大会由工信部旗下的中国信息通信研究院泰尔终端实验室主办，并邀请了华为、OPPO、vivo、小米、三星、魅族、金立、nubia、Google、百度、阿里巴巴、腾讯、京东、美团、平安科技、个推、极光等 75 家企业代表出席。由工信部牵头的“安卓统一推送联盟”将为国内的 Android 消息推送服务建立统一的标准</p>
 </blockquote>
-<p><strong>其效果就是可以在不需要打开APP的情况之下，也能接收到APP的消息通知</strong></p>
+<div class="note note-danger">
+            <p>其效果就是可以在不需要打开APP的情况之下，也能接收到APP的消息通知</p>
+          </div>
+
 <hr>
 
                 
@@ -646,6 +663,8 @@
   <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
