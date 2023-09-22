@@ -1,0 +1,48 @@
+import pys.num as pn
+import numpy as np
+...以下是使用Python编写的熵权法、线性加权法和TOPSIS值的示例程序：
+a=pn.rc()
+# 熵权法
+def entropy_weight(matrix):
+    # 计算熵值
+    row_sum = np.sum(matrix, axis=1)
+    p_matrix = matrix / row_sum[:, np.newaxis]
+    p_matrix = np.nan_to_num(p_matrix)  # 处理除0的情况
+    entropy = -np.sum(p_matrix * np.log(p_matrix), axis=1)
+    
+    # 计算权重
+    weights = (1 - entropy) / np.sum(1 - entropy)
+    return weights
+
+
+# 线性加权法
+def linear_weight(matrix, weights):
+    normalized_matrix = matrix / np.max(matrix, axis=0)  # 归一化矩阵
+    weighted_scores = np.dot(normalized_matrix, weights)  # 矩阵乘法
+    return weighted_scores
+
+
+# TOPSIS值
+def topsis(matrix):
+    normalized_matrix = matrix / np.sqrt(np.sum(matrix**2, axis=0))  # 归一化矩阵
+    positive_ideal = np.max(normalized_matrix, axis=1)  # 正理想解
+    negative_ideal = np.min(normalized_matrix, axis=1)  # 负理想解
+
+    distance_positive = np.sqrt(np.sum((normalized_matrix - positive_ideal[:, np.newaxis])**2, axis=1))  # 到正理想解的距离
+    distance_negative = np.sqrt(np.sum((normalized_matrix - negative_ideal[:, np.newaxis])**2, axis=1))  # 到负理想解的距离
+    
+    topsis_value = distance_negative / (distance_positive + distance_negative)  # TOPSIS值
+    return topsis_value
+
+
+# 示例数据
+matrix = np.array([[3, 4, 5],
+                   [6, 7, 8],
+                   [9, 1, 2]])
+
+# 计算权重
+weights_entropy = entropy_weight(matrix)
+weights_linear = np.array([0.3, 0.4, 0.3])
+
+# 熵权法加权分数
+scores
