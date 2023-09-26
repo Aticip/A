@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Linux安装mysql</title>
+    <link href="/2023/09/26/deepin-mysql/"/>
+    <url>/2023/09/26/deepin-mysql/</url>
+    
+    <content type="html"><![CDATA[<h1 id="deepin安装mysql数据库"><a href="#deepin安装mysql数据库" class="headerlink" title="deepin安装mysql数据库"></a>deepin安装mysql数据库</h1><h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><ul><li>如果此时deepin没有软件源，需要先在官网下载mysql的软件包，<a href="https://dev.mysql.com/downloads/mysql/">Mysql社区版最新地址</a> 。</li><li>Select Operating System 和 Select OS Version 需要根据自己电脑进行选择，前者如果没有特定的版本，例如deepin，则选择Generic，后者根据cpu进行选择，x86或者arm以及32位或是64位的操作系统。</li><li>选择第一个进行下载。</li></ul><p><img src="/2023/09/26/deepin-mysql/001.png" alt="例图"></p><h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><ol><li><p>找到刚才下载的软件包，进入所在目录执行如下命令，将其解压至&#x2F;usr&#x2F;local目录下。</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> tar -xvJf mysql-<span class="hljs-number">8</span>.<span class="hljs-number">1</span>.<span class="hljs-number">0</span>-linux-glibc2.<span class="hljs-number">28</span>-x86_64.tar.xz -C /usr/local<br></code></pre></td></tr></table></figure></li></ol><p>​<!--如果下载的软件包不同，请将命令中的包名更换成自己的--></p><ol start="2"><li><p>进入&#x2F;usr&#x2F;local目录下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 3">cd /usr/local<br></code></pre></td></tr></table></figure></li><li><p>创建软链接方便操作</p> <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> ln -s mysql-<span class="hljs-number">8</span>.<span class="hljs-number">1</span>.<span class="hljs-number">0</span>-linux-glibc2.<span class="hljs-number">28</span>-x86_64.tar.xz mysql<br></code></pre></td></tr></table></figure></li></ol><h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><ul><li><p>创建mysql用户和用户组</p><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs gradle">sudo useradd -r -s <span class="hljs-regexp">/bin/</span><span class="hljs-keyword">false</span> mysql<br><br># -s <span class="hljs-regexp">/bin/</span><span class="hljs-keyword">false</span> 参数指定 mysql 用户仅拥有所有权，而没有登录权限<br># 这里不用添加mysql组了，会有默认的mysql组<br></code></pre></td></tr></table></figure></li><li><p>进入mysql目录</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">cd <span class="hljs-regexp">/usr/</span>local/mysql<br></code></pre></td></tr></table></figure></li><li><p>在该mysql目录下建立data目录，用于存放mysql数据</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo mkdir <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/mysql/</span>data<br></code></pre></td></tr></table></figure></li><li><p>修改mysql目录的所有者为mysql</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">chown</span> -R mysql:mysql ./<br></code></pre></td></tr></table></figure></li><li><p>安装</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo .<span class="hljs-regexp">/bin/my</span>sqld --user=mysql --basedir=<span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/mysql --datadir=/u</span>sr<span class="hljs-regexp">/local/my</span>sql/data --initialize <br></code></pre></td></tr></table></figure></li></ul><p><strong>安装成果后会有如下显示</strong></p><blockquote><p>[Server] A temporary password is generated for root@localhost: sL:maY*3y6)d</p></blockquote><h2 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h2><ul><li><p>将mysql放入系统进程中，若未启动mysql则选择启动命令</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo cp support-files<span class="hljs-regexp">/mysql.server /</span>etc<span class="hljs-regexp">/init.d/my</span>sqld<br>service mysqld start       <span class="hljs-comment">#mysql启动命令</span><br>service mysqld restart     <span class="hljs-comment">#mysql重新启动命令</span><br></code></pre></td></tr></table></figure></li><li><p>在 &#x2F;usr&#x2F;bin 下建立指向 mysql 的软连接之后使用随机密码登录 mysql 数据库</p><p><strong>注意保存密码，如sL:maY*3y6)d，在登录时输入即可</strong></p>  <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo ln -s <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/mysql/</span>bin<span class="hljs-regexp">/mysql /u</span>sr/bin<br><br>mysql -u root -p<br></code></pre></td></tr></table></figure></li><li><p>进入mysql后，为root用户设置新的密码</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">user</span> <span class="hljs-string">&#x27;root&#x27;</span>@<span class="hljs-string">&#x27;localhost&#x27;</span> identified <span class="hljs-keyword">by</span> <span class="hljs-string">&#x27;123456&#x27;</span>;<br></code></pre></td></tr></table></figure></li></ul><div class="note note-danger">            <p>以后登录mysql需要先启动，然后输入登录命令</p>          </div>]]></content>
+    
+    
+    <categories>
+      
+      <category>教程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>mysql</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>安卓的墓碑机制(暂停执行已缓存应用)</title>
     <link href="/2022/06/28/Tombstone-mechanism/"/>
     <url>/2022/06/28/Tombstone-mechanism/</url>
@@ -13,7 +38,7 @@
     
     <categories>
       
-      <category>攻略</category>
+      <category>教程</category>
       
     </categories>
     
@@ -45,7 +70,7 @@
     
     <tags>
       
-      <tag>日常记录</tag>
+      <tag>记录</tag>
       
     </tags>
     
@@ -71,31 +96,6 @@
     <tags>
       
       <tag>记录</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>生命是个过程</title>
-    <link href="/2022/06/13/hj/"/>
-    <url>/2022/06/13/hj/</url>
-    
-    <content type="html"><![CDATA[<h1 id="无题"><a href="#无题" class="headerlink" title="无题"></a>无题</h1><ul><li><p>好的围棋要慢慢下，好的生活经历要细细品味。   不要着急把棋盘下满，也不要匆忙地走完人生之路。    人生像一杯浓茶，只有细细地品味才能尝到最真切的茶香。   喝得太急，也许尝到的只是许多苦涩。</p></li><li><p>人生的大海永远都无法俯视。   所以，我们不能看到它的整个过程，唯有认真仔细地走过，才不会被巨浪打倒。   到大自然中去&gt;观看风景，也许你会发现，一个有山水水的地方，包孕天地的灵毓，却也有贫瘠落后。   造化予此就一定取彼，这是毫无疑问的。   </p></li><li><p>所以，我们无法达到十全十美。   “飞流直下三千尺”的状况不是那简单的“一泻千里”就能拥有的，那是多少水流叠过一个弯又一个弯，再叠一个弯又一个弯才将那隐隐闷响化作喧嚣，传向远方。</p></li><li><p>站在大山脚下，你只能感到它的高大只有攀到山顶才会发现，原来那起伏的连山在“涌动”。   然而，如果你只停留在云层的上面，那么你永远无法享受那变化不停的云彩给人带来的美感。   如果你只在大地上看天，那么你就失去了感觉这繁盛大地整体壮景的机&gt;会。   生命的诞生就注定了我们要在运动中追求、创造、拥有。   因为“不识庐山真面目，只缘身在此山中”，也因为“欲穷千里目，更上一层楼”。</p></li><li><p>作为沧海一滴的是水，作为社会一员的是人。   水为人献出了一切，而人又为人做了些什么呢?</p></li><li><p>生命是一个过程，可悲的是它不可以重来。切勿匆忙，放稳脚步，积极前行!</p></li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>一言</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>优美文章</tag>
       
     </tags>
     
