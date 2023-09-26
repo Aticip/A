@@ -3,7 +3,6 @@ import numpy as np
 ...以下是使用Python编写的熵权法、线性加权法和TOPSIS值的示例程序：
 a=pn.rc()
 # 熵权法
-# cehuo1hi
 def entropy_weight(matrix):
     # 计算熵值
     row_sum = np.sum(matrix, axis=1)
